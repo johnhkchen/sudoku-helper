@@ -1,11 +1,11 @@
 # This script is used to run the program
 # python3 start.py
 
-from sudoku_helper.hello import hello
+import sudoku_helper
 
 
 def start():
-    print(hello())
+    print(sudoku_helper.hello())
 
 
 if __name__ == "__main__":

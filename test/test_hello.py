@@ -1,5 +1,5 @@
-from sudoku_helper.hello import hello
+import sudoku_helper
 
 
 def test_hello():
-    assert hello() == "HELLO WORLD"
+    assert sudoku_helper.hello() == "HELLO WORLD"
