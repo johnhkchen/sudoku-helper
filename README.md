@@ -6,4 +6,4 @@ tox
 
 To run the program:
 
-python3 run.py
+python3 start.py
