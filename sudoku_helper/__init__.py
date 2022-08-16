@@ -1,1 +1,1 @@
-from .hello import hello
+from sudoku_helper.hello import hello
