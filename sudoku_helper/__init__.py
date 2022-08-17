@@ -1,1 +1,1 @@
-from sudoku_helper.grid import SudokuGrid
+from sudoku_helper.grid import SudokuPuzzle

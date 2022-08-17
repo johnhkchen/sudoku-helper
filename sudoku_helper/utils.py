@@ -24,3 +24,20 @@ def get_sector_coords(sector):
             if sector_code[y][x] == sector:
                 coords.append((x, y))
     return coords
+
+
+def print_sudoku(puzzle):
+    print("\n" + "-" * 100)
+    for row in puzzle:
+        print("|", end="")
+        for elem in row:
+            if type(elem) != int:
+                if len(elem) == 1:
+                    elem = "{}!".format(elem[0])
+                else:
+                    elem = ",".join([str(c) for c in elem])
+            else:
+                elem = "_" if elem == 0 else elem
+            print("{}".format(str(elem).center(10)), end="|")
+        print("\n" + "-" * 100)
+    print("\n")
