@@ -17,7 +17,7 @@ class SudokuGrid:
 
     def get_coords(self, coords) -> list[int]:
         return [self.get(x, y) for x, y in coords]
-    
+
     def get_sector(self, sector) -> list[int]:
         return self.get_coords(get_sector_coords(sector))
 
