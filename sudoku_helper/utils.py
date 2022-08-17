@@ -27,7 +27,7 @@ def get_sector_coords(sector):
 
 
 def print_sudoku(puzzle):
-    print("\n" + "-" * 100)
+    print("\n" + "-" * 73)
     for row in puzzle:
         print("|", end="")
         for elem in row:
@@ -37,7 +37,7 @@ def print_sudoku(puzzle):
                 else:
                     elem = ",".join([str(c) for c in elem])
             else:
-                elem = "_" if elem == 0 else elem
-            print("{}".format(str(elem).center(10)), end="|")
-        print("\n" + "-" * 100)
+                elem = " " if elem == 0 else elem
+            print("{}".format(str(elem).center(7)), end="|")
+        print("\n" + "-" * 73)
     print("\n")

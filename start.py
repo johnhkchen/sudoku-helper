@@ -16,10 +16,12 @@ def start():
         [9, 0, 1, 0, 0, 0, 0, 3, 2],
     ])
     
-    print("Puzzle: ")
+    print("Your Sudoku Puzzle: ")
     print_sudoku(my_puzzle.grid)
-    for i in range(6):
+    for i in range(1, 6):
         my_puzzle.iterate_solving()
+        # print("Solving... Iteration {}".format(i))
+        # print_sudoku(my_puzzle.grid)
     print("Solved: ")
     print_sudoku(my_puzzle.grid)
 
