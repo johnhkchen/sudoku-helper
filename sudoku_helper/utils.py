@@ -12,6 +12,10 @@ sector_code = (
 )
 
 
+def is_valid_coord(x, y):
+    return x in range(9) and y in range(9)
+
+
 def get_sector_coords(sector):
     # return a list of 9 (x, y) coordinates for a given sector
     coords = []

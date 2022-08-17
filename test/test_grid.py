@@ -22,21 +22,6 @@ def my_numbers():
 
 
 @pytest.fixture
-def sector_code():
-    return [
-        [0, 0, 0, 1, 1, 1, 2, 2, 2],
-        [0, 0, 0, 1, 1, 1, 2, 2, 2],
-        [0, 0, 0, 1, 1, 1, 2, 2, 2],
-        [3, 3, 3, 4, 4, 4, 5, 5, 5],
-        [3, 3, 3, 4, 4, 4, 5, 5, 5],
-        [3, 3, 3, 4, 4, 4, 5, 5, 5],
-        [6, 6, 6, 7, 7, 7, 8, 8, 8],
-        [6, 6, 6, 7, 7, 7, 8, 8, 8],
-        [6, 6, 6, 7, 7, 7, 8, 8, 8],
-    ]
-
-
-@pytest.fixture
 def my_grid(my_numbers):
     # Initialize a sudoku grid by feeding it a 2D list
     # Sudoku grids are 9x9, with 0's representing blank and 1-9 being numbers
@@ -55,6 +40,18 @@ def test_grid_get(my_numbers, my_grid):
     assert my_grid.get(9, 9) == -1
 
 
+def test_grid_get_coords(my_numbers, my_grid):
+    # Can also get with a list of coords
+    answer = []
+    coords = []
+    for y in range(9):
+        for x in range(9):
+            coords.append((x, y))
+            answer.append(my_numbers[y][x])
+    query = my_grid.get_coords(coords)
+    assert all([ans == elem for ans, elem in zip(answer, query)])
+
+
 def test_grid_get_row(my_numbers, my_grid):
     for y in range(9):
         answer = [my_numbers[y][x] for x in range(9)]
@@ -69,7 +66,7 @@ def test_grid_get_col(my_numbers, my_grid):
         assert all([ans == elem for ans, elem in zip(answer, query)])
 
 
-def test_grid_get_sector(my_numbers, my_grid, sector_code):
+def test_grid_get_sector(my_numbers, my_grid):
     # Sudoku grid is broken into 9 3x3 sectors
     # get_sector returns the numbers in given sector as a flattened list
     # We can get all numbers in a sector similar to grid and row
