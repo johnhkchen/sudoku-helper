@@ -1,5 +1,5 @@
 # Helper functions for things that get reused between modules
-def sector_code(x, y) -> int:
+def sector_code(x: int, y: int) -> int:
     if is_valid_coord(x, y):
         return (
             [0, 0, 0, 1, 1, 1, 2, 2, 2],
@@ -16,11 +16,11 @@ def sector_code(x, y) -> int:
         return -1
 
 
-def is_valid_coord(x, y):
+def is_valid_coord(x: int, y: int) -> bool:
     return x in range(9) and y in range(9)
 
 
-def get_sector_coords(sector):
+def get_sector_coords(sector: int) -> list[tuple[int, int]]:
     # return a list of 9 (x, y) coordinates for a given sector
     coords = []
     for y in range(9):

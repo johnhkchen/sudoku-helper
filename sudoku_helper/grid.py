@@ -7,29 +7,29 @@ class SudokuPuzzle:
         self.grid = grid
         self.candidates = [[[] for x in range(9)] for y in range(9)]
 
-    def get(self, x, y) -> int:
+    def get(self, x: int, y: int) -> int:
         return self.grid[y][x] if is_valid_coord(x, y) else -1
 
-    def get_row(self, y) -> list[int]:
+    def get_row(self, y: int) -> list[int]:
         return [self.get(x, y) for x in range(9)]
 
-    def get_col(self, x) -> list[int]:
+    def get_col(self, x: int) -> list[int]:
         return [self.get(x, y) for y in range(9)]
 
-    def get_coords(self, coords) -> list[int]:
+    def get_coords(self, coords: list[tuple[int, int]]) -> list[int]:
         return [self.get(x, y) for x, y in coords]
 
-    def get_sector(self, x, y) -> list[int]:
+    def get_sector(self, x: int, y: int) -> list[int]:
         return self.get_coords(get_sector_coords(sector_code(x, y)))
 
-    def set(self, x, y, value) -> None:
+    def set(self, x: int, y: int, value: int) -> None:
         if is_valid_coord(x, y):
             self.grid[y][x] = value
 
-    def set_candidates(self, x, y, candidates) -> None:
+    def set_candidates(self, x: int, y: int, candidates: list[int]) -> None:
         self.candidates[y][x] = candidates
 
-    def deduce_candidates(self, x, y) -> list[int]:
+    def deduce_candidates(self, x: int, y: int) -> list[int]:
         # Deduce candidates for a single cell, returning the list
         if self.get(x, y) != 0:
             return []
@@ -50,7 +50,7 @@ class SudokuPuzzle:
                     self.deduce_candidates(x, y),
                 )
 
-    def get_candidates(self, x, y) -> list[int]:
+    def get_candidates(self, x: int, y: int) -> list[int]:
         return self.candidates[y][x] if is_valid_coord(x, y) else []
 
     def iterate_solving(self):
