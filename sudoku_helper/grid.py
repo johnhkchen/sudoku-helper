@@ -19,11 +19,8 @@ class SudokuPuzzle:
     def get_coords(self, coords) -> list[int]:
         return [self.get(x, y) for x, y in coords]
 
-    def get_sector(self, sector) -> list[int]:
-        return self.get_coords(get_sector_coords(sector))
-
-    def get_sector_with_coords(self, x, y) -> list[int]:
-        return self.get_coords(get_sector_coords(sector_code[y][x]))
+    def get_sector(self, x, y) -> list[int]:
+        return self.get_coords(get_sector_coords(sector_code(x, y)))
 
     def set(self, x, y, value) -> None:
         if is_valid_coord(x, y):
@@ -38,7 +35,7 @@ class SudokuPuzzle:
             return []
         row = self.get_row(y)
         col = self.get_col(x)
-        sector = self.get_sector_with_coords(x, y)
+        sector = self.get_sector(x, y)
         used_numbers = set(row)
         used_numbers.update(col)
         used_numbers.update(sector)

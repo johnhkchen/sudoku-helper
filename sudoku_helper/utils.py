@@ -1,15 +1,19 @@
 # Helper functions for things that get reused between modules
-sector_code = (
-    [0, 0, 0, 1, 1, 1, 2, 2, 2],
-    [0, 0, 0, 1, 1, 1, 2, 2, 2],
-    [0, 0, 0, 1, 1, 1, 2, 2, 2],
-    [3, 3, 3, 4, 4, 4, 5, 5, 5],
-    [3, 3, 3, 4, 4, 4, 5, 5, 5],
-    [3, 3, 3, 4, 4, 4, 5, 5, 5],
-    [6, 6, 6, 7, 7, 7, 8, 8, 8],
-    [6, 6, 6, 7, 7, 7, 8, 8, 8],
-    [6, 6, 6, 7, 7, 7, 8, 8, 8],
-)
+def sector_code(x, y) -> int:
+    if is_valid_coord(x, y):
+        return (
+            [0, 0, 0, 1, 1, 1, 2, 2, 2],
+            [0, 0, 0, 1, 1, 1, 2, 2, 2],
+            [0, 0, 0, 1, 1, 1, 2, 2, 2],
+            [3, 3, 3, 4, 4, 4, 5, 5, 5],
+            [3, 3, 3, 4, 4, 4, 5, 5, 5],
+            [3, 3, 3, 4, 4, 4, 5, 5, 5],
+            [6, 6, 6, 7, 7, 7, 8, 8, 8],
+            [6, 6, 6, 7, 7, 7, 8, 8, 8],
+            [6, 6, 6, 7, 7, 7, 8, 8, 8],
+        )[y][x]
+    else:
+        return -1
 
 
 def is_valid_coord(x, y):
@@ -21,12 +25,13 @@ def get_sector_coords(sector):
     coords = []
     for y in range(9):
         for x in range(9):
-            if sector_code[y][x] == sector:
+            if sector_code(x, y) == sector:
                 coords.append((x, y))
     return coords
 
 
 def print_sudoku(puzzle):
+    # Prints a 2D list of numbers as a formatted sudoku grid
     print("\n" + "-" * 73)
     for row in puzzle:
         print("|", end="")
