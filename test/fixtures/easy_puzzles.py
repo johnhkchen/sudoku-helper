@@ -1,8 +1,5 @@
-from sudoku_helper import SudokuPuzzle
-
-
-def test_puzzle_1():
-    puzzle = [
+puzzle_1 = {
+    "start": [
         [0, 9, 3, 8, 4, 6, 0, 1, 0],
         [0, 2, 0, 9, 3, 0, 0, 7, 4],
         [0, 5, 8, 1, 7, 0, 3, 9, 0],
@@ -12,8 +9,8 @@ def test_puzzle_1():
         [8, 0, 0, 2, 6, 0, 0, 0, 9],
         [0, 0, 0, 0, 1, 0, 0, 8, 0],
         [9, 0, 1, 0, 0, 0, 0, 3, 2],
-    ]
-    answer = [
+    ],
+    "solved": [
         [7, 9, 3, 8, 4, 6, 2, 1, 5],
         [1, 2, 6, 9, 3, 5, 8, 7, 4],
         [4, 5, 8, 1, 7, 2, 3, 9, 6],
@@ -23,17 +20,12 @@ def test_puzzle_1():
         [8, 7, 4, 2, 6, 3, 1, 5, 9],
         [5, 3, 2, 4, 1, 9, 6, 8, 7],
         [9, 6, 1, 5, 8, 7, 4, 3, 2],
-    ]
-
-    sudoku = SudokuPuzzle(puzzle)
-    for _ in range(6):
-        sudoku.iterate_solving()
-
-    assert sudoku.grid == answer
+    ],
+}
 
 
-def test_puzzle_2():
-    puzzle = [
+puzzle_2 = {
+    "start": [
         [0, 9, 3, 8, 4, 6, 0, 1, 0],
         [0, 2, 0, 9, 3, 0, 0, 7, 4],
         [0, 5, 8, 1, 7, 0, 3, 9, 0],
@@ -43,8 +35,8 @@ def test_puzzle_2():
         [8, 0, 0, 2, 6, 0, 0, 0, 9],
         [0, 3, 0, 0, 1, 0, 0, 8, 0],
         [9, 0, 1, 0, 0, 0, 0, 3, 2],
-    ]
-    answer = [
+    ],
+    "solved": [
         [7, 9, 3, 8, 4, 6, 2, 1, 5],
         [1, 2, 6, 9, 3, 5, 8, 7, 4],
         [4, 5, 8, 1, 7, 2, 3, 9, 6],
@@ -54,16 +46,12 @@ def test_puzzle_2():
         [8, 7, 4, 2, 6, 3, 1, 5, 9],
         [5, 3, 2, 4, 1, 9, 6, 8, 7],
         [9, 6, 1, 5, 8, 7, 4, 3, 2],
-    ]
-    sudoku = SudokuPuzzle(puzzle)
-    for _ in range(6):
-        sudoku.iterate_solving()
-
-    assert sudoku.grid == answer
+    ],
+}
 
 
-def test_puzzle_3():
-    puzzle = [
+puzzle_3 = {
+    "start": [
         [0, 2, 0, 5, 0, 1, 6, 8, 9],
         [6, 8, 0, 0, 0, 4, 7, 0, 2],
         [1, 9, 7, 0, 8, 0, 0, 0, 0],
@@ -73,8 +61,8 @@ def test_puzzle_3():
         [5, 0, 0, 0, 2, 0, 0, 9, 6],
         [0, 0, 9, 0, 0, 8, 4, 0, 0],
         [2, 0, 1, 3, 0, 0, 0, 0, 7],
-    ]
-    answer = [
+    ],
+    "solved": [
         [3, 2, 4, 5, 7, 1, 6, 8, 9],
         [6, 8, 5, 9, 3, 4, 7, 1, 2],
         [1, 9, 7, 2, 8, 6, 3, 4, 5],
@@ -84,9 +72,13 @@ def test_puzzle_3():
         [5, 3, 8, 4, 2, 7, 1, 9, 6],
         [7, 6, 9, 1, 5, 8, 4, 2, 3],
         [2, 4, 1, 3, 6, 9, 8, 5, 7],
-    ]
-    sudoku = SudokuPuzzle(puzzle)
-    for _ in range(6):
-        sudoku.iterate_solving()
+    ],
+}
 
-    assert sudoku.grid == answer
+
+def all_easy_puzzles() -> list[dict[str, list[list[int]]]]:
+    return [
+        puzzle_1,
+        puzzle_2,
+        puzzle_3,
+    ]
