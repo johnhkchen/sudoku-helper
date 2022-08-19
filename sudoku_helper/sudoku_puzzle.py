@@ -1,4 +1,4 @@
-from sudoku_helper.utils import sector_code, get_sector_coords, is_valid_coord
+from sudoku_helper.utils import get_sector_coords, is_valid_coord
 
 
 class SudokuPuzzle:
@@ -20,7 +20,7 @@ class SudokuPuzzle:
         return [self.get(x, y) for x, y in coords]
 
     def get_sector(self, x: int, y: int) -> list[int]:
-        return self.get_coords(get_sector_coords(sector_code(x, y)))
+        return self.get_coords(get_sector_coords(x, y))
 
     def set(self, x: int, y: int, value: int) -> None:
         if is_valid_coord(x, y):

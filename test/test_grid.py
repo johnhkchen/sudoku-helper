@@ -68,7 +68,7 @@ def test_grid_get_col(easy_numbers, easy_puzzle):
 
 def test_grid_get_sector(easy_numbers, easy_puzzle):
     # Sector can also be queried using x, y coords to mimic row/col behavior
-    answer = [easy_numbers[y][x] for x, y in get_sector_coords(0)]
+    answer = [easy_numbers[y][x] for x, y in get_sector_coords(0, 0)]
     query = easy_puzzle.get_sector(0, 0)
     assert len(query) == len(answer)
     assert all([ans == elem for ans, elem in zip(answer, query)])

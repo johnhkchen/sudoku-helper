@@ -20,8 +20,9 @@ def is_valid_coord(x: int, y: int) -> bool:
     return x in range(9) and y in range(9)
 
 
-def get_sector_coords(sector: int) -> list[tuple[int, int]]:
+def get_sector_coords(x_given: int, y_given: int) -> list[tuple[int, int]]:
     # return a list of 9 (x, y) coordinates for a given sector
+    sector = sector_code(x_given, y_given)
     coords = []
     for y in range(9):
         for x in range(9):

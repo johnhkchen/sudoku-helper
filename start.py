@@ -6,15 +6,15 @@ from sudoku_helper.utils import print_sudoku
 def start():    
     # Solve the given sudoku puzzle
     my_puzzle = SudokuPuzzle([
-        [0, 2, 0, 5, 0, 1, 6, 8, 9],
-        [6, 8, 0, 0, 0, 4, 7, 0, 2],
-        [1, 9, 7, 0, 8, 0, 0, 0, 0],
-        [0, 1, 6, 7, 9, 0, 0, 3, 0],
-        [0, 7, 0, 8, 0, 0, 5, 6, 0],
-        [8, 0, 0, 0, 1, 2, 0, 0, 0],
-        [5, 0, 0, 0, 2, 0, 0, 9, 6],
-        [0, 0, 9, 0, 0, 8, 4, 0, 0],
-        [2, 0, 1, 3, 0, 0, 0, 0, 7],
+        [2, 3, 7, 1, 0, 0, 4, 0, 0],
+        [6, 0, 0, 9, 0, 0, 1, 7, 0],
+        [0, 0, 1, 0, 7, 4, 6, 3, 5],
+        [0, 1, 0, 8, 0, 2, 0, 4, 0],
+        [9, 0, 0, 0, 0, 0, 3, 0, 6],
+        [3, 4, 2, 0, 9, 0, 0, 1, 0],
+        [1, 8, 0, 0, 0, 0, 0, 9, 3],
+        [0, 6, 0, 0, 1, 0, 0, 0, 4],
+        [0, 2, 3, 7, 5, 0, 0, 0, 0],
     ])
     
     print("Your Sudoku Puzzle: ")
@@ -26,7 +26,7 @@ def start():
     print("Solved: ")
     print_sudoku(my_puzzle.grid)
     # Print the grid to use as a test case
-    # print(my_puzzle.grid)
+    print(my_puzzle.grid)
 
 if __name__ == "__main__":
     start()
