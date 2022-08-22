@@ -26,13 +26,13 @@ def sector_candidates(candidates, coords):
 
 
 def only_possible_candidate(candidates, coords):
-    related_candidates = [
+    groups = [
         row_candidates(candidates, coords),
         col_candidates(candidates, coords),
         sector_candidates(candidates, coords),
     ]
     x, y = coords
-    for group in related_candidates:
+    for group in groups:
         found_candidate = unique_candidate(group)
         if found_candidate and found_candidate in candidates[y][x]:
             return found_candidate
