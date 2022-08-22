@@ -1,4 +1,5 @@
 from sudoku_helper.utils import get_sector_coords, is_valid_coord
+from sudoku_helper import solver
 
 
 class SudokuPuzzle:
@@ -60,3 +61,9 @@ class SudokuPuzzle:
                 candidates = self.get_candidates(x, y)
                 if len(candidates) == 1:
                     self.set(x, y, candidates[0])
+                # Look for unique candidates
+                unique_candidate = solver.only_possible_candidate(
+                    self.candidates, (x, y)
+                )
+                if unique_candidate:
+                    self.set(x, y, unique_candidate)

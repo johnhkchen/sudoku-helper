@@ -27,7 +27,7 @@ def start():
     print_sudoku(my_puzzle.grid)
     # Print the grid to use as a test case
     # print(my_puzzle.grid)
-    print_sudoku(my_puzzle.candidates)
+    # print_sudoku(my_puzzle.candidates)
 
 if __name__ == "__main__":
     start()

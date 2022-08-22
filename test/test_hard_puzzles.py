@@ -1,9 +1,6 @@
-import pytest
-
 from sudoku_helper import SudokuPuzzle
 
 
-@pytest.mark.xfail
 def test_hard_puzzles(hard_puzzles):
     # Fully solving hard algorithms is not working yet
     # Checking for completion as an intermediate goal
